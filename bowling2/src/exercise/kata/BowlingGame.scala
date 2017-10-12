@@ -35,6 +35,7 @@ class BowlingGame {
       }
       else if(cf.isEnding){
         prec = cf
+        cf.bonus = BonusFactory.getBonus(cf)
         currentFrameId += 1     
       }
       else
