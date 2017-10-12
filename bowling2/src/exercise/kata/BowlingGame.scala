@@ -1,8 +1,7 @@
 
 /*
  * Todo
- * add InitFrame, LastFrame that extend Frame
- * put frame logic inside its definitions
+ * Add Strike and Spare classes
  * 
  * 
  * */
@@ -13,50 +12,33 @@ import scala.util.Random
 
 class BowlingGame {
   private val MAX_FRAME = 10
-  private val MAX_SCORE = 10
-  private val frames = new Array[Frame](MAX_FRAME)
-  private var currentFrameId = -1
+  
+  private val frames : Array[Frame] = Array.tabulate(MAX_FRAME)(
+      i => if (i == MAX_FRAME - 1) new LastFrame else new InitFrame)
+      
+  private var currentFrameId = 0
   
   private def cf = frames(currentFrameId)
-  
-  def lastFrame = currentFrameId == MAX_FRAME - 1
-  
-  def fullScore = cf.score == MAX_SCORE
-  
-  def endOfFrame = {
-    
-    (!lastFrame &&  (fullScore || cf.nbRolls == 2)) ||
-    (lastFrame &&  fullScore && cf.nbRolls == 3) ||
-    (lastFrame &&  !fullScore && cf.nbRolls == 2)
-  }
-  
-  def newFrame{
-      currentFrameId += 1
-      frames(currentFrameId) = new Frame
-  }
   
   def score = frames.map(_.finalScore).sum
   
   def run {
-    currentFrameId = -1
-    newFrame
+    currentFrameId = 0
+    var prec : Frame = null
     
-    val rnd = Random
-    
-    while(currentFrameId < 9 || (lastFrame && !endOfFrame))
+    val r = Random
+    while(currentFrameId < MAX_FRAME)
     {
-      if(endOfFrame)
-      {
-        val frame = cf
-        if(fullScore){
-          newFrame
-          frame.nextFrame = cf
-        }
-        else{
-          newFrame
-        }
+      if(cf.isBeginning){
+        if(prec != null) prec.nextFrame = cf
+        roll(r.nextInt(cf.maxRollPts + 1))
       }
-      roll(rnd.nextInt(cf.maxRollPts + 1))
+      else if(cf.isEnding){
+        prec = cf
+        currentFrameId += 1     
+      }
+      else
+        roll(r.nextInt(cf.maxRollPts + 1))
     }
     
   }
