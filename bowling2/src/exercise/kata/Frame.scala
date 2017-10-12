@@ -5,6 +5,16 @@ class Frame {
   
   var nextFrame : Frame = null
   
+  def nbRolls = rolls.length
+  
+  def maxRollPts = 10 - score
+  
+  def score = rolls.map(_.score).sum
+   
+  def newRoll(i:Int) { rolls = rolls :+ new Roll(i) }
+  
+  override def toString() = rolls.mkString(",")
+  
   def isSpare = score == 10 && nbRolls == 2
   
   def spareBonus = {
@@ -23,18 +33,6 @@ class Frame {
       rolls(0).score + nextFrame.spareBonus
   }
   
-  def nbRolls = {
-    rolls.length
-  }
-  
-  def toGo = {
-    10 - score
-  }
-  
-  def score = {
-    rolls.map(_.score).sum
-  }
-  
   def finalScore = { score +
     (if(score == 10 && nextFrame != null) {
       if(isSpare){
@@ -46,13 +44,4 @@ class Frame {
     else
       0)
   }
-  
-  def newRoll(i:Int) {
-    rolls = rolls :+ new Roll(i)
-  }
-  
-  override def toString() = {
-    rolls.mkString(",")
-  }
-  
 }
