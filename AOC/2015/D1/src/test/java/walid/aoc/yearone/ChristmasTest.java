@@ -27,5 +27,10 @@ public class ChristmasTest
     {
         return new TestSuite( ChristmasTest.class );
     }
+    
+    public void testFloor(){
+    	Christmas c = new Christmas();
+    	assert (c.floor() == 0);
+    }
 
 }

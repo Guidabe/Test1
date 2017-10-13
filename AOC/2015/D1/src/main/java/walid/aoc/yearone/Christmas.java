@@ -6,4 +6,7 @@ package walid.aoc.yearone;
  */
 public class Christmas
 {
+	public int floor(){
+		return 0;
+	}
 }
