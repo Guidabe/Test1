@@ -32,16 +32,16 @@ public class ChristmasTest
     	Christmas c = new Christmas("");
     	assert (c.floor() == 0);
     }
-    /*
+    
     public void testUp(){
     	Christmas c = new Christmas("(");
     	assert (c.floor() == 1);
     }
 
     public void testDown(){
-    	Christmas c = new Christmas("(");
+    	Christmas c = new Christmas(")");
     	assert (c.floor() == -1);
-    }*/
+    }
     
 
 
