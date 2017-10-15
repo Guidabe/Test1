@@ -92,7 +92,7 @@ public class ChristmasTest
 
     public void testInputBasement(){
 		try {
-			assert (c.basement(readFileToString("input.txt")) == 0);
+			assert (c.basement(readFileToString("input.txt")) == 1783);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
