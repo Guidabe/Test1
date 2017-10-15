@@ -6,13 +6,7 @@ package walid.aoc.yearone;
  */
 public class Christmas
 {
-	private String directions;
-	
-	Christmas(String directions){
-		this.directions = directions;
-	}
-	
-	public int floor(){
+	public int floor(String directions){
 		if (directions.equals("("))
 			return 1;
 		else if (directions.equals(")"))
