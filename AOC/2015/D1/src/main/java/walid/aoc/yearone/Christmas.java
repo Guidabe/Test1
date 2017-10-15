@@ -15,4 +15,11 @@ public class Christmas
 		}
 		return floor;
 	}
+	
+	public int basement(String directions){
+
+		int floor = 0;
+
+		return floor;
+	}
 }

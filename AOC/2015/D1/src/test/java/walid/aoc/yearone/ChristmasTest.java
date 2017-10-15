@@ -89,6 +89,15 @@ public class ChristmasTest
 			e.printStackTrace();
 		}
     }
+
+    public void testInputBasement(){
+		try {
+			assert (c.basement(readFileToString("input.txt")) == 0);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
     
 
 
