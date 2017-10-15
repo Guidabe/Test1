@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="2015/D1/src/main/java"/>
-	<classpathentry kind="src" path="2015/D1/src/test/java"/>
-	<classpathentry kind="lib" path="2015/D1/target/surefire/surefirebooter5509806812666646336.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="2015/D1/target/classes"/>
-</classpath>
