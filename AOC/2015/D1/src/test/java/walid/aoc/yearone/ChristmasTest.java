@@ -35,27 +35,6 @@ public class ChristmasTest
     }
     
     private Christmas c;
-    @Override
-    public void setUp(){
-    	c = new Christmas();
-    }
-
-    public void testSteady(){
-    	assert (c.floor("") == 0);
-    }
-    
-    public void testUp(){
-    	
-    	assert (c.floor("(") == 1);
-    }
-
-    public void testDown(){
-    	assert (c.floor(")") == -1);
-    }
-
-    public void testSimpleString(){
-    	assert (c.floor("(())") == 0);
-    }
     
     private String readFileToString(String filePath)
     	    throws java.io.IOException{
@@ -79,7 +58,30 @@ public class ChristmasTest
         return fileData.toString();
     }
     
-    public void testInput(){
+    @Override
+    public void setUp(){
+    	c = new Christmas();
+    }
+
+    public void testSteadyFloor(){
+    	assert (c.floor("") == 0);
+    }
+    
+    public void testUpFloor(){
+    	
+    	assert (c.floor("(") == 1);
+    }
+
+    public void testDownFloor(){
+    	assert (c.floor(")") == -1);
+    }
+
+    public void testSimpleStringFloor(){
+    	assert (c.floor("(())") == 0);
+    }
+    
+    
+    public void testInputFloor(){
 		try {
 			assert (c.floor(readFileToString("input.txt")) == 232);
 		} catch (IOException e) {
