@@ -7,11 +7,12 @@ package walid.aoc.yearone;
 public class Christmas
 {
 	public int floor(String directions){
-		if (directions.equals("("))
-			return 1;
-		else if (directions.equals(")"))
-			return -1;
-		else
-			return 0;
+
+		int floor = 0;
+		for (int i = 0; i < directions.length() ; i++){
+			if (directions.charAt(i) == '(') floor++;
+			else if (directions.charAt(i) == ')') floor --;
+		}
+		return floor;
 	}
 }

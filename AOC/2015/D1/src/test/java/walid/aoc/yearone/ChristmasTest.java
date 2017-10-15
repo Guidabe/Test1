@@ -48,7 +48,7 @@ public class ChristmasTest
     }
 
     public void testSimpleString(){
-    	assert (c.floor("(())") == -1);
+    	assert (c.floor("(())") == 0);
     }
     
 
