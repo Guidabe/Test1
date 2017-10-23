@@ -88,9 +88,13 @@ public class Circuit
 			}
 		}
 	}
+
+	public Node getNode(String id){
+		return nodes.get(id);
+	}
 	
 	public int getSignal(String id){
-		return nodes.get(id).signal();
+		return getNode(id).signal();
 	}
 
 }

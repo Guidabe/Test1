@@ -135,7 +135,7 @@ public class CircuitTest
     /**
      * Circuit Test
      */
-    public void testApp()
+    public void testPartOne()
     {
     	Circuit c = new Circuit();
     	
@@ -147,5 +147,25 @@ public class CircuitTest
 		}
     	
         assertTrue( c.getSignal("a") == 46065 );
+    }
+    
+
+    /**
+     * Circuit Test
+     */
+    public void testPartTwo()
+    {
+    	Circuit c = new Circuit();
+    	
+    	try {
+			c.loadConfiguration("input.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	((Wire)c.getNode("b")).setInput(new Value((char)46065));
+    	
+        assertTrue( c.getSignal("a") == 14134 );
     }
 }
