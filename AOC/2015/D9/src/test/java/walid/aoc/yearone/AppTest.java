@@ -83,14 +83,30 @@ public class AppTest
     
 
     /**
-     * SymetricPair Test
+     * Min Distance Test
      */
-    public void testDistance()
+    public void testMinDistance()
     {
     	App app = new App();
     	try {
 			app.loadConfiguration("input.txt");
 			assert(app.minDistance() == 207);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
+    
+    /**
+     * Max Distance Test
+     */
+    public void testMaxDistance()
+    {
+    	App app = new App();
+    	try {
+			app.loadConfiguration("input.txt");
+			assert(app.maxDistance() == 804);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
