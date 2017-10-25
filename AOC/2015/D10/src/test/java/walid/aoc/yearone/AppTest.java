@@ -54,4 +54,17 @@ public class AppTest
     	
     	assert(output.length() == 492982);
     }
+    
+    /**
+     * Look and say Test
+     */
+    public void testInput2()
+    {
+    	String output = "1321131112";
+    	
+    	for(int i=0; i< 50 ; i++){
+    		output = LookAndSay.say(output);
+    	}
+    	assert(output.length() == 6989950);
+    }
 }
