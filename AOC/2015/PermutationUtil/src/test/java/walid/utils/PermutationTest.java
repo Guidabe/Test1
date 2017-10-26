@@ -2,6 +2,7 @@ package walid.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.google.common.math.IntMath;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -36,17 +37,9 @@ public class PermutationTest
      */
     public void testPermutation()
     {
-    	String str = "abcde";
-    	
-    	Character[] charObjectArray = str.chars().mapToObj(c -> (char)c).toArray(Character[]::new);
-    	
-    	Character[] permuted = new Character[str.length()];
-    	
-        boolean used[] = {false, false, false, false, false};
-    	
-    	Permutations<Character> p = new Permutations<Character>(charObjectArray);
-    	p.permute(0, permuted, used);
-    	
+    	String str = "abcde";	
+    	Character[] charObjectArray = str.chars().mapToObj(c -> (char)c).toArray(Character[]::new);	
+    	Permutations<Character> p = new Permutations<Character>(charObjectArray);	
     	List<String> strings = new ArrayList<String>();
     	int length = p.getPermutations().size();
 
@@ -59,7 +52,7 @@ public class PermutationTest
     	}
 
     	//strings.forEach(s -> System.out.println(s));
-    	
+    	assert (IntMath.factorial(str.length()) == length);
     	assert (strings.contains("abcde"));
     	assert (strings.contains("edcba"));
     	assert (strings.contains("abdec"));

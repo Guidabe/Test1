@@ -1,5 +1,6 @@
 package walid.utils;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +15,13 @@ public class Permutations<Type>{
 		this.original = original;
 	}
 
-    public List<Type[]> getPermutations() {
+    @SuppressWarnings("unchecked")
+	public List<Type[]> getPermutations() {
+    	if (permutations.isEmpty()){
+        	Type[] permuted = (Type[]) Array.newInstance(original.getClass().getComponentType(), original.length);      	
+            boolean used[] = {false, false, false, false, false};
+        	permute(0, permuted, used);
+    	}
 		return permutations;
 	}
 
