@@ -126,4 +126,20 @@ public class AppTest
 			e.printStackTrace();
 		}
     }
+
+    /**
+     * test sum 10
+     */
+    public void test10()
+    {
+    	String json;
+		try {
+			json = FileUtils.readFileToString("input.txt");
+	    	JsonApp myApp = new JsonApp(json);
+	        assertTrue( myApp.sumIgnoreRed() == 87842 );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 }

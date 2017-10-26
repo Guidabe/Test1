@@ -31,8 +31,32 @@ public class JsonApp
 		}
 		return 0;
 	}
+
+	private int recursive_sum2(JsonElement e){
+		if(e.isJsonObject()){
+			if (e.getAsJsonObject().entrySet().stream().
+					anyMatch(c -> c.getValue().isJsonPrimitive() 
+							&& c.getValue().getAsJsonPrimitive().isString() 
+							&& c.getValue().getAsJsonPrimitive().getAsString().equals("red")))
+				return 0;
+			return e.getAsJsonObject().entrySet().stream().
+					mapToInt(c -> recursive_sum2(c.getValue())).sum();
+		}
+		else if (e.isJsonArray()){
+			return StreamSupport.stream(e.getAsJsonArray().spliterator(), false).
+					mapToInt(c -> recursive_sum2(c)).sum();
+		}
+		else if(e.isJsonPrimitive() && e.getAsJsonPrimitive().isNumber()){
+			return e.getAsNumber().intValue();
+		}
+		return 0;
+	}
 	
 	public int sum(){
 		return recursive_sum(jsonTree);
+	}
+	
+	public int sumIgnoreRed(){
+		return recursive_sum2(jsonTree);
 	}
 }
