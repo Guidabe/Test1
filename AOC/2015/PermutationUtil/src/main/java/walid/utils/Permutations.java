@@ -19,7 +19,8 @@ public class Permutations<Type>{
 	public List<Type[]> getPermutations() {
     	if (permutations.isEmpty()){
         	Type[] permuted = (Type[]) Array.newInstance(original.getClass().getComponentType(), original.length);      	
-            boolean used[] = {false, false, false, false, false};
+            boolean used[] = new boolean[original.length];
+            Arrays.fill(used, false);
         	permute(0, permuted, used);
     	}
 		return permutations;
