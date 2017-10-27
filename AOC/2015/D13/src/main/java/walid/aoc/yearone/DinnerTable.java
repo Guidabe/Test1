@@ -41,6 +41,14 @@ public class DinnerTable
 		}
 	}
 
+	public Set<String> getPeople() {
+		return people;
+	}
+
+	public Map<Pair<String, String>, Integer> getHappinessMap() {
+		return happinessMap;
+	}
+
 	public int maxHappiness(){
 		int happiness = 0;
 		Permutations<String> permutations = new Permutations<>(people.toArray(new String[0]));

@@ -57,4 +57,23 @@ public class DinnerTableTest
 			e.printStackTrace();
 		}
     }
+
+    /**
+     * DinnerTable Test Input - Part two
+     */
+    public void testDinnerTableInput2()
+    {
+    	try {
+			DinnerTable dt = new DinnerTable("input.txt");
+			dt.getPeople().forEach(p -> {
+				dt.getHappinessMap().put(new Pair<>(p,"me"), 0);
+				dt.getHappinessMap().put(new Pair<>("me", p), 0);
+				});
+			dt.getPeople().add("me");
+			assert(dt.maxHappiness() == 668);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 }
